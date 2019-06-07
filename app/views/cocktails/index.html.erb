@@ -1,23 +1,26 @@
-<div class="container">
-  <div class="row justify-content-center">
-  <% @cocktails.each do |cocktail| %>
-    <% if cocktail.photo.present? %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-         url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
-    <% else %>
-      <div class="card" >
-    <% end %>
-      <div class="card-title">
-        <%= link_to cocktail.name, cocktail_path(cocktail)  %>
-      </div>
-    </div>
-  <% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path  "drink-background.jpg" %>);">
+  <div class="container">
+    <h1>All da Drinks in the world! , < for everyone > </h1>
+    <p>Show off your <strong>drink skill</strong>, Create your unique drink . . .</p><br>
+    <%= link_to 'New Cocktail',  new_cocktail_path, :class => "button button-banner" %>
   </div>
 </div>
 
-<%= cl_image_tag("bpzhfzaegadi1holhz8l", width: 400, height: 300, crop: :fill) %>
+<div class="container mt-5">
 
-<%= cl_image_tag("uye7imcyqz5pux6ncg3m", width: 400, height: 300, crop: :fill) %>
+  <div class="row mb-5">
+    <% @cocktails.each do |cocktail| %>
+    <div class="col-md-4 mb-5">
+      <%= link_to cocktail_path(cocktail), class: "card-cocktail-button" do %>
+        <div class="card-cocktail">
+          <%= cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fit %>
+          <div class="card-cocktail-infos">
+            <h2><%= cocktail.name %></h2>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
 
-
-<%= link_to 'Create Cocktail', new_cocktail_path, :class => "btn btn-primary" %>
+</div>

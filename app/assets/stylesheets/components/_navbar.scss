@@ -1,13 +1,23 @@
 
-.navbar-lewagon {
+.navbar-drink {
   background-color: transparent;
   transition: 0.5s background-color ease;
-  background-color: white;
-  border-bottom: 1px solid grey;
-  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 10px;
+  color: white;
+  font-size: 12px;
 }
 
-.navbar-lewagon-white {
+.navbar-drink-hover {
   background-color: white;
+}
+
+a.navbar-drink-logo {
+  letter-spacing: 4px;
+  color: white;
+  padding-left: 20px;
+
+  &:hover {
+    text-decoration: none;
+  }
 }

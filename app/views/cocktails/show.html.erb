@@ -1,16 +1,32 @@
-<%= @cocktail.name %>
+<div class="container m-content pt-5">
+  <div class="card-drink">
+    <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fit %>
+    <div class="card-drink-infos">
+      <div>
+        <h2 class="pb-2"><%= @cocktail.name %></h2>
+        <ul>
+          <% @cocktail.doses.each do |dose|  %>
+            <li>
+              <%= dose.ingredient.name %>
+              <%= dose.description %>
+              <%= link_to 'Remove', dose_path(dose), :method => :delete%>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-<% @cocktail.doses.each do |dose|  %>
-  <p>
-    <%= dose.ingredient.name %>
-    <%= dose.description %>
-    <%= link_to 'Remove', dose_path(dose), :method => :delete %>
-  </p>
-<% end %>
+<div class="container mt-5">
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <div class="create-form-control form-group">
+      <%= f.input :description, :class => "form-control" %>
+      <%= f.association :ingredient, as: :select %>
+      <%= f.button :submit, :class => "button"%>
+    </div>
+  <% end %>
+</div>
 
 
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient, as: :radio_buttons %>
-  <%= f.button :submit %>
-<% end %>
+

@@ -1,29 +1,78 @@
-.card {
-  margin: 20px;
-  width: 300px;
-  height: 250px;
-  border: 1px solid gray;
-  box-shadow: 0 0 15px grey;
-  background-size: cover;
+.card-cocktail {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-title {
-  position: absolute;
-  margin-top: 100px;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.4);
-  bottom: 0;
-  left: 0;
+.card-cocktail:hover {
+  box-shadow: 0 0 30px rgba(0,0,0,0.5)
+}
+
+.card-cocktail > img {
+  height: 300px;
   width: 100%;
+  object-fit: cover;
+}
+
+.card-cocktail h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-cocktail .card-cocktail-infos {
   padding: 20px;
-  font-size: 18px;
+  text-align: center;
+}
+
+a.card-cocktail-button {
+  color: $button-color;
+
+  &:hover {
+    text-decoration: none;
+    color: $button-color-hover;
+  }
+  
+}
+
+.card-drink {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-drink > img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-drink h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-drink ul {
+  font-size: 14px;
+  opacity: .7;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card-drink .card-drink-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+
+  li {
+    padding: 5px;
+  }
 
   a {
-    color: white;
-    font-weight: bold;
-    &:hover {
-      color: rgb(209, 116, 72);
-      text-decoration: none;
-    }
+    color: rgb(163, 76, 76);
   }
 }
